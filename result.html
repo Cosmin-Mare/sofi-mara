@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezultatul Tău!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Rezultatul Testului 🎉</h1>
+        <p id="score-text"></p>
+        <p id="level-text"></p>
+        <a href="thankyou.html"><button>Post a Comment</button></a>
+    </div>
+
+    <!-- Confetti Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
+    <script>
+        function startConfetti() {
+            let duration = 5000; // 5 secunde
+            let end = Date.now() + duration;
+
+            (function frame() {
+                // Confetti din partea stângă (mai mult & mai mare)
+                confetti({
+                    particleCount: 15, // MAI MULT
+                    spread: 80, // MAI LARG
+                    startVelocity: 40, // MAI RAPID
+                    scalar: 1.2, // MAI MARE
+                    origin: { x: 0, y: 1 },
+                    colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"]
+                });
+
+                // Confetti din partea dreaptă (mai mult & mai mare)
+                confetti({
+                    particleCount: 15,
+                    spread: 80,
+                    startVelocity: 40,
+                    scalar: 1.2,
+                    origin: { x: 1, y: 1 },
+                    colors: ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"]
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+        }
+
+        window.onload = function () {
+            let score = localStorage.getItem("score") || 0;
+            score = parseInt(score);
+
+            document.getElementById("score-text").innerText = `Scorul tău: ${score}`;
+
+            // PORNEȘTE CONFETTI INDIFERENT DE SCOR!
+            startConfetti();
+
+            let levelMessage = "Nivel: ";
+            if (score === 0) levelMessage += "Bro, măcar ai încercat... 😂";
+            else if (score <= 10) levelMessage += "E clar, ai fost neatent... 🤦‍♂️";
+            else if (score <= 25) levelMessage += "Nu e rău, dar mai ai de învățat! 📖";
+            else if (score <= 45) levelMessage += "Bravo! Ai făcut treabă bună! 👍";
+            else levelMessage += "Genial! Einstein ar fi mândru de tine! 🧠✨";
+
+            document.getElementById("level-text").innerText = levelMessage;
+        };
+    </script>
+</body>
+</html>

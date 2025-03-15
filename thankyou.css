@@ -1,0 +1,44 @@
+/* thankyou.css - Stil pentru pagina de comentarii */
+
+body {
+    background-color: #ffe6f2; /* Fundal roz deschis */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #d63384; /* Roz închis pentru text */
+}
+
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ff1493; /* Roz aprins */
+}
+
+textarea {
+    width: 90%;
+    padding: 10px;
+    border: 2px solid #ff69b4; /* Roz */
+    border-radius: 5px;
+    resize: none;
+}
+
+button {
+    background-color: #ff1493; /* Roz aprins */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d63384; /* Roz mai închis */
+}

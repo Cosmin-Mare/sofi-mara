@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lasă un comentariu</title>
+    <link rel="stylesheet" href="thankyou.css"> <!-- Legătura cu CSS-ul roz -->
+</head>
+<body>
+    <div class="container">
+        <h1>Lasă un comentariu ✍️</h1>
+        <form id="comment-form">
+            <label for="comment">Scrie comentariul tău:</label>
+            <textarea id="comment" name="comment" rows="4" required></textarea>
+            <br>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("comment-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Oprește trimiterea default a formularului
+            alert("Comentariul tău a fost trimis! 🎉"); // Mesaj de confirmare
+            window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0"; // Redirecționează către Google
+        });
+    </script>
+</body>
+</html>
